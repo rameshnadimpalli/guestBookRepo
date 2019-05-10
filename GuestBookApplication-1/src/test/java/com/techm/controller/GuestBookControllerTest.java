@@ -22,6 +22,7 @@ public class GuestBookControllerTest {
 	@Autowired
     private GuestBookController guestBookController;
 	
+	
 	//@MockBean
     //private LoginDao loginDao;
 	
