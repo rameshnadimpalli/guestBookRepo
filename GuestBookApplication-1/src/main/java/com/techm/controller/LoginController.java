@@ -23,7 +23,6 @@ public class LoginController {
 	@RequestMapping(value = "/createEntry", method = RequestMethod.POST)
 	public String showform(@ModelAttribute("login") Login login, Model m) {
 		String isValid = logindao.validate(login.getUsername(), login.getPassword());
-		System.out.println("isValid:=" + isValid);
 		if (isValid.equalsIgnoreCase("G"))
 			return "createEntry";
 		if (isValid.equalsIgnoreCase("A"))

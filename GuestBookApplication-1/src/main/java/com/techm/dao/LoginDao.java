@@ -26,16 +26,13 @@ public class LoginDao {
 	}
 
 	public String validate(String username, String password) {
-		System.out.println(username + " : " + password);
 		String sql = "select usertype from users where username = '" + username + "'  and password =  '"+password+"' ";
 		String username1 = "";
 		try {
 			username1 = (String) templatelogin.queryForObject(sql, String.class);
 		} catch (Exception r) {
-			System.out.println("exception--"+r);
 			username1 = "DNE";
 		}
-		System.out.println(username1);
 		return username1;
 	}
 }
