@@ -1,6 +1,7 @@
 package com.techm.controller;
 
 import static org.junit.Assert.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,4 +25,9 @@ public class LoginControllerTest {
 	public void test() {
 		fail("Not yet implemented");
 	}
+	
+	 @Test
+	    public void contexLoads() throws Exception {
+	        assertThat(LoginController).isNotNull();
+	  }
 }
