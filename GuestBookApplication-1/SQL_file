@@ -1,0 +1,30 @@
+
+CREATE DATABASE  IF NOT EXISTS mydatabase;
+
+use mydatabase;
+
+DROP TABLE IF EXISTS USERS;
+DROP TABLE IF EXISTS GUEST_BOOK;
+
+
+
+CREATE TABLE USERS (
+  userId int(10) NOT NULL AUTO_INCREMENT,
+  username varchar(200) DEFAULT NULL,
+  password varchar(200) DEFAULT NULL,
+  usertype varchar(200) DEFAULT NULL,
+  PRIMARY KEY (userId)
+);
+
+CREATE TABLE GUEST_BOOK (
+   id int(12) NOT NULL AUTO_INCREMENT,
+  text varchar(200) DEFAULT NULL,
+  imagepath varchar(200) DEFAULT NULL,
+  status varchar(20) NOT NULL,
+  PRIMARY KEY (id)
+);
+
+INSERT INTO USERS VALUES (1,'guest', '123', 'G');
+INSERT INTO USERS VALUES (2,'admin', '123', 'A');
+
+COMMIT;
