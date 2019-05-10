@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
-
+import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import com.techm.dao.LoginDao;
 /**
  * 
@@ -17,7 +17,7 @@ import com.techm.dao.LoginDao;
  * @date 10-May-2019
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 public class LoginControllerTest {
 
 	@Autowired
