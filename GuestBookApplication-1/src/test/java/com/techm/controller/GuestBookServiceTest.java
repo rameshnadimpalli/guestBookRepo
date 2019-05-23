@@ -35,6 +35,8 @@ public class GuestBookServiceTest {
 		 Entry p=new Entry();
 		 p.setTextentry("my comments");
 		 p.setImagepath("");
+		 p.setStatus("P");
+		 p.setId(1234);
 		 when(guestBookDao.save(p)).thenReturn(1);
 		 assertEquals(1, guestBookService.save(p));
 	 }
