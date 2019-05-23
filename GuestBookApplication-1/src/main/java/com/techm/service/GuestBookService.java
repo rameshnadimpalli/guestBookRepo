@@ -14,7 +14,7 @@ public class GuestBookService {
 	private final GuestBookDao guestBookDao;
 	
 	@Autowired
-	GuestBookService( GuestBookDao guestBookDao){
+	public GuestBookService(GuestBookDao guestBookDao){
 		this.guestBookDao=guestBookDao;
 	}
 	

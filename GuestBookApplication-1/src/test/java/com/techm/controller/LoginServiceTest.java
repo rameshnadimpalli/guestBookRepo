@@ -1,18 +1,18 @@
 package com.techm.controller;
 
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.when;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
+import static org.mockito.Mockito.when;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
+import org.springframework.test.context.junit4.SpringRunner;
+
 import com.techm.dao.LoginDao;
 import com.techm.service.LoginService;
 /**
@@ -39,11 +39,10 @@ public class LoginServiceTest {
 	    public void contexLoads() throws Exception {
 	        assertThat(loginService).isNotNull();
 	  }
-	    @Test
+	  
+	  @Test
 	  public void showFormTest() {
-	    
-		  when(loginDao.validate("guest", "dummyPass")).thenReturn("G");
+	      when(loginDao.validate("guest", "dummyPass")).thenReturn("G");
 		  assertEquals("G", loginService.validate("guest", "dummyPass"));
-		  
 	  }
 }
