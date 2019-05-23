@@ -1,16 +1,20 @@
 package com.techm.controller;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.when;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import com.techm.dao.LoginDao;
+import com.techm.service.LoginService;
 /**
  * 
  * @author Ramesh Nadimpalli
@@ -18,12 +22,12 @@ import com.techm.dao.LoginDao;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
-public class LoginControllerTest {
+public class LoginServiceTest {
 
-	@Autowired
-    private LoginController LoginController;
+	@InjectMocks
+    private LoginService loginService;
 	
-	@MockBean
+	@Mock
     private LoginDao loginDao;
 	
 	//@Test
@@ -31,8 +35,15 @@ public class LoginControllerTest {
 		fail("Not yet implemented");
 	}
 	
-	// @Test
+	 @Test
 	    public void contexLoads() throws Exception {
-	        assertThat(LoginController).isNotNull();
+	        assertThat(loginService).isNotNull();
+	  }
+	    @Test
+	  public void showFormTest() {
+	    
+		  when(loginDao.validate("guest", "dummyPass")).thenReturn("G");
+		  assertEquals("G", loginService.validate("guest", "dummyPass"));
+		  
 	  }
 }

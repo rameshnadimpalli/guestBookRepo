@@ -10,9 +10,13 @@ import com.techm.dao.GuestBookDao;
 
 @Service
 public class GuestBookService {
-
+	
+	private final GuestBookDao guestBookDao;
+	
 	@Autowired
-	public GuestBookDao guestBookDao;
+	GuestBookService( GuestBookDao guestBookDao){
+		this.guestBookDao=guestBookDao;
+	}
 	
 	public int save(Entry p) {
 		return guestBookDao.save(p);
