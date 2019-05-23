@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.techm.bean.Entry;
 import com.techm.bean.Login;
-import com.techm.dao.LoginDao;
+import com.techm.service.LoginService;
 /**
  * 
  * @author Ramesh Nadimpalli
@@ -18,11 +18,11 @@ import com.techm.dao.LoginDao;
 @Controller
 public class LoginController {
 	@Autowired
-	LoginDao logindao;
+	LoginService loginService;
 
 	@RequestMapping(value = "/createEntry", method = RequestMethod.POST)
-	public String showform(@ModelAttribute("login") Login login, Model m) {
-		String isValid = logindao.validate(login.getUsername(), login.getPassword());
+	public String showForm(@ModelAttribute("login") Login login, Model m) {
+		String isValid = loginService.validate(login.getUsername(), login.getPassword());
 		if (isValid.equalsIgnoreCase("G"))
 			return "createEntry";
 		if (isValid.equalsIgnoreCase("A"))
@@ -45,7 +45,7 @@ public class LoginController {
 	}
 
 	@RequestMapping("/adminSignin")
-	public String validateLogin(Model m) {
+	public String adminLogin(Model m) {
 		m.addAttribute("command", new Entry());
 		return "adminSignin";
 	}

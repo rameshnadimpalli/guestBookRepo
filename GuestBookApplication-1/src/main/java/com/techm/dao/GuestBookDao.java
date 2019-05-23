@@ -64,13 +64,9 @@ public class GuestBookDao {
 		return template.query("select * from guest_book where status != 'P'", new RowMapper<Entry>() {
 			public Entry mapRow(ResultSet rs, int row) throws SQLException {
 				Entry e = new Entry();
-				System.out.print(rs.getInt(1));
 				e.setId(rs.getInt(1));
-				System.out.print(rs.getString(2));
 				e.setTextentry(rs.getString(2));
-				System.out.print(rs.getString(3));
 				e.setImagepath(rs.getString(3));
-				System.out.print(rs.getString(4));
 				e.setStatus(rs.getString(4));
 				return e;
 			}
